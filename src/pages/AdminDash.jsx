@@ -1,4 +1,5 @@
 import AdminNavMenu from "../components/AdminNavMenu";
+import SviStudenti from "../components/SviStudenti";
 
 function AdminDash() {
     return (
@@ -6,6 +7,8 @@ function AdminDash() {
             <AdminNavMenu />
 
             <h1>Admin Dashboard</h1>
+
+            <SviStudenti />
 
         </div>
     )

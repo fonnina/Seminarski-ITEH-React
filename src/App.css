@@ -3,6 +3,10 @@
   margin: 0;
 }
 
+body {
+  background-color: #FFF9F7;
+}
+
 .login_page {
   margin-left: 43%;
   margin-top: 10%;
@@ -38,9 +42,15 @@
 
 .admin_nav_menu {
   display: flex;
+  justify-content: space-between;
 }
 
 #button_odjava {
-  width: 15%;
-  margin-left: 157vh;
+  font-size: 18px;
+  width: 200px;
+}
+
+#studentitable {
+  width: 80%;
+  margin-left: 10%;
 }
