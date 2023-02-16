@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 function Login() {
 
@@ -8,6 +9,8 @@ function Login() {
         lozinka: ''
     });
 
+    const navigate = useNavigate();
+
 
     function prijaviSe() {
 
@@ -15,6 +18,16 @@ function Login() {
             if (response.data.message == 'Uspešno ste se prijavili') {
                 alert(response.data.message)
                 localStorage.setItem('korisnicko_ime', loginValues.korisnicko_ime);
+
+                if (response.data.admin == 1) {
+                    localStorage.setItem('admin', 1);
+                    navigate('/admindashboard')
+                }
+
+                else {
+                    localStorage.setItem('admin', 0);
+                    navigate('/studentshomepage')
+                }
             }
             else {
                 alert(response.data.message)
