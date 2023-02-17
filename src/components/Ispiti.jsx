@@ -4,13 +4,25 @@ import { useEffect, useState } from 'react';
 function Ispiti() {
 
     const [ispiti, setIspiti] = useState([]);
-   
+    const [prijavljeniIspiti, setPrijavljeniIspiti] = useState([]);
 
     useEffect(() => {
         axios.get("http://localhost:8000/api/ispiti").then(res => {
             setIspiti(res.data.ispiti);
         });
     }, []);
+
+    function prijaviIspit(id) {
+        ispiti.forEach(ispit => {
+            if (ispit.id == id)
+                setPrijavljeniIspiti(current => [...current, ispit]);
+        });
+    }
+
+    function obrisiIspit(id) {
+        let filter = prijavljeniIspiti.filter(item => item.id != id)
+        setPrijavljeniIspiti(filter)
+    }
 
 
     return (
@@ -37,7 +49,7 @@ function Ispiti() {
                                     <td>{ispit.ESPB}</td>
                                     <td>{ispit.godina}</td>
                                     <td>{ispit.profesor}</td>
-                                    <td><button className='btn btn-success'>Prijavi</button></td>
+                                    <td><button onClick={() => prijaviIspit(ispit.id)} className='btn btn-success'>Prijavi</button></td>
                                 </tr>
                             )
                         })
@@ -45,6 +57,46 @@ function Ispiti() {
                 </tbody>
 
             </table>
+
+
+            <br />
+            <br />
+            <br />
+            <br />
+            <hr />
+
+            <h1 className="mx-5 mt-4 mb-3">Prijavljeni ispiti</h1>
+
+            <table id="ispititable" className="table table-hover table-striped">
+
+                <thead>
+                    <tr>
+                        <th>Naziv</th>
+                        <th>ESPB</th>
+                        <th>Godina</th>
+                        <th>Profesor</th>
+                        <th></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {
+                        prijavljeniIspiti.map((ispit) => {
+                            return (
+                                <tr key={ispit.id}>
+                                    <td>{ispit.naziv}</td>
+                                    <td>{ispit.ESPB}</td>
+                                    <td>{ispit.godina}</td>
+                                    <td>{ispit.profesor}</td>
+                                    <td><button onClick={() => obrisiIspit(ispit.id)} className='btn btn-success'>Obriši</button></td>
+                                </tr>
+                            )
+                        })
+                    }
+                </tbody>
+
+            </table>
+
 
         </div>
     )
