@@ -27,6 +27,7 @@ body {
   font-size: 24px;
   padding-top: 0.2%;
   margin-left: 2.5%;
+  width: 250px;
 }
 
 .nav_item a {
@@ -58,4 +59,8 @@ body {
 #ispititable {
   width: 50%;
   margin-left: 2.5%;
+}
+
+#skolarine_nav {
+  margin-left: -260%;
 }

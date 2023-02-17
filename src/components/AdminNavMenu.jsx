@@ -18,6 +18,10 @@ function AdminNavMenu() {
             </div>
 
             <div className="nav_item">
+                <Link to="/skolarine" id="skolarine_nav">Školarine</Link>
+            </div>
+
+            <div className="nav_item">
                 <button onClick={odjava} id="button_odjava" className="btn btn-light">Odjava</button>
             </div>
 
