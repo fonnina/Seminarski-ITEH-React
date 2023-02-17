@@ -6,7 +6,7 @@ function AdminDash() {
         <div>
             <AdminNavMenu />
 
-            <h1>Admin Dashboard</h1>
+            <h1 className="text-center" id="studentinaslov">Studenti</h1>
 
             <SviStudenti />
 

@@ -35,11 +35,13 @@ function SkolarineUplate() {
 
             <AdminNavMenu />
 
+            <h1 className="text-center" id="studentinaslov">Školarine</h1>
 
-            <table id="studentitable" className="table table-hover table-striped mt-4">
+
+            <table id="studentitable" className="table table-hover table-striped mt-3">
 
                 <thead>
-                    <tr>
+                    <tr className='text-center'>
                         <th>Ime i prezime</th>
                         <th>Broj indeksa</th>
                         <th>Email</th>
@@ -49,7 +51,7 @@ function SkolarineUplate() {
                     </tr>
                 </thead>
 
-                <tbody>
+                <tbody className='text-center'>
                     {
                         studenti.map((student) => {
                             return (
@@ -59,7 +61,7 @@ function SkolarineUplate() {
                                     <td>{student.email}</td>
                                     <td>{student.godina}</td>
                                     <td>{student.prosek}</td>
-                                    <td>
+                                    <td className='text-center'>
                                         {student.uplata_skolarine == 'da' ?
                                             <button className="btn btn-success">DA</button> :
                                             <button onClick={() => funkcija(student.korisnicko_ime)} className="btn btn-danger">NE</button>}

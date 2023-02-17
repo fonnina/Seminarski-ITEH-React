@@ -12,10 +12,19 @@ function SviStudenti() {
     }, []);
 
 
+    function obrisiStudenta(id) {
+        axios.delete(`http://localhost:8000/api/obrisistudenta/${id}`).then(response => {
+            alert(response.data.message)
+            window.location.reload()
+        });
+    }
+
+
+
     return (
         <div>
 
-            <table id="studentitable" className="table table-hover table-striped">
+            <table id="studentitable" className="table table-hover table-striped mt-4">
 
                 <thead>
                     <tr>
@@ -25,6 +34,7 @@ function SviStudenti() {
                         <th>Email</th>
                         <th>Budzet</th>
                         <th>Prosek</th>
+                        <th></th>
                     </tr>
                 </thead>
 
@@ -39,6 +49,7 @@ function SviStudenti() {
                                     <td>{student.email}</td>
                                     <td>{student.budzet == 1 ? 'Budzet' : 'Samofinansirajuci'}</td>
                                     <td>{student.prosek}</td>
+                                    <td><button onClick={() => obrisiStudenta(student.id)} className="btn btn-danger">Obriši</button></td>
                                 </tr>
                             )
                         })

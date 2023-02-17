@@ -53,7 +53,7 @@ body {
 
 #studentitable {
   width: 80%;
-  margin-left: 10%;
+  margin-left: 12.5%;
 }
 
 #ispititable {
@@ -63,4 +63,10 @@ body {
 
 #skolarine_nav {
   margin-left: -260%;
+}
+
+#studentinaslov {
+  margin-top: 2%;
+  margin-bottom: 2%;
+  font-size: 50px;
 }
