@@ -84,3 +84,15 @@ body {
   margin-top: 2%;
   margin-left: 40%;
 }
+
+#email {
+  width: 85%;
+}
+
+.emaildiv {
+  display: flex;
+}
+
+#proveriemailbutton {
+  width: 22%;
+}

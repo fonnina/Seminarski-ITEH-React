@@ -1,5 +1,6 @@
 import AdminNavMenu from "../components/AdminNavMenu";
 import { useState } from 'react'
+import axios from 'axios'
 
 
 function NoviStudent() {
@@ -17,7 +18,38 @@ function NoviStudent() {
     });
 
 
-    
+    function sacuvajStudenta() {
+        axios.post("http://localhost:8000/api/sacuvajstudenta", studentValues).then(response => {
+            alert(response.data.message)
+        });
+    }
+
+
+    function proveriEmail() {
+
+        const options = {
+            method: 'GET',
+            url: 'https://email-validator18.p.rapidapi.com/email/validate',
+            params: { email: studentValues.email },
+            headers: {
+                'X-RapidAPI-Key': 'b044c03b9amshd0d2c3a3355470cp192338jsn2b5104da4842',
+                'X-RapidAPI-Host': 'email-validator18.p.rapidapi.com'
+            }
+        };
+
+        axios.request(options).then(function (response) {
+
+            if (response.data.success == "bad")
+                alert("Email adresa nije validna!")
+            else
+                alert("Email adresa je validna!")
+
+        }).catch(function (error) {
+            console.error(error);
+        });
+    }
+
+
     return (
         <div>
 
@@ -35,11 +67,15 @@ function NoviStudent() {
                         onChange={e => setStudentValues({ ...studentValues, ime_prezime: e.target.value })} />
                 </div>
 
-                <div>
+                <div >
                     <label className="mt-2">Email: </label>
-                    <input type="email" className="form-control"
-                        value={studentValues.email}
-                        onChange={e => setStudentValues({ ...studentValues, email: e.target.value })} />
+                    <div className="emaildiv">
+                        <input type="email" className="form-control" id="email"
+                            value={studentValues.email}
+                            onChange={e => setStudentValues({ ...studentValues, email: e.target.value })} />
+
+                        <button onClick={proveriEmail} className="btn btn-success mx-2" id="proveriemailbutton">Proveri email</button>
+                    </div>
                 </div>
 
 
@@ -88,7 +124,7 @@ function NoviStudent() {
                 </div>
 
 
-                <button className="btn btn-primary btn-lg" id="sacuvajstudentabutton">Sačuvaj studenta</button>
+                <button onClick={sacuvajStudenta} className="btn btn-primary btn-lg" id="sacuvajstudentabutton">Sačuvaj studenta</button>
 
 
 
