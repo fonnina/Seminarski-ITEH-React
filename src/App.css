@@ -96,3 +96,12 @@ body {
 #proveriemailbutton {
   width: 22%;
 }
+
+#pretraga {
+  width: 18%;
+  margin-left: 12.5%;
+}
+
+.pretragadiv {
+  display: flex;
+}

@@ -5,6 +5,9 @@ import AdminNavMenu from "./AdminNavMenu";
 function SkolarineUplate() {
 
     const [studenti, setStudenti] = useState([]);
+    const [pretraga, setPretraga] = useState({
+        pretragaInput: ''
+    });
 
     useEffect(() => {
         axios.get("http://localhost:8000/api/studentiuplate").then(res => {
@@ -30,6 +33,13 @@ function SkolarineUplate() {
     }
 
 
+    function pretragaStudenata() {
+        axios.post("http://localhost:8000/api/pretragastudenata", pretraga).then(response => {
+            setStudenti(response.data.studenti)
+        });
+    }
+
+
     return (
         <div>
 
@@ -37,6 +47,13 @@ function SkolarineUplate() {
 
             <h1 className="text-center" id="studentinaslov">Školarine</h1>
 
+            <div className="pretragadiv">
+                <input type="text" className="form-control" id="pretraga"
+                    onChange={e => setPretraga({ ...pretraga, pretragaInput: e.target.value })}
+                />
+
+                <button onClick={pretragaStudenata} className="btn btn-primary mx-2">Pretraga</button>
+            </div>
 
             <table id="studentitable" className="table table-hover table-striped mt-3">
 
