@@ -5,13 +5,14 @@ import AdminNavMenu from "./AdminNavMenu";
 function SkolarineUplate() {
 
     const [studenti, setStudenti] = useState([]);
+    const [sortiranje, setSortiranje] = useState(['rastuce']);
     const [pretraga, setPretraga] = useState({
         pretragaInput: ''
     });
 
     useEffect(() => {
         axios.get("http://localhost:8000/api/studentiuplate").then(res => {
-            setStudenti(res.data.studenti);
+            setStudenti(res.data.studenti)
         });
     }, []);
 
@@ -40,6 +41,23 @@ function SkolarineUplate() {
     }
 
 
+    function sort() {
+
+        if (sortiranje == "rastuce")
+            studenti.sort((a, b) => a.prosek - b.prosek)
+        else
+            studenti.sort((a, b) => b.prosek - a.prosek)
+
+        let sort_niz = [...studenti];
+        setStudenti(sort_niz);
+
+        if (sortiranje == "rastuce")
+            setSortiranje("opadajuce")
+        else
+            setSortiranje("rastuce")
+    }
+
+
     return (
         <div>
 
@@ -63,7 +81,7 @@ function SkolarineUplate() {
                         <th>Broj indeksa</th>
                         <th>Email</th>
                         <th>Godina</th>
-                        <th>Prosek</th>
+                        <th>Prosek <button onClick={sort} className="btn btn-primary">SORT</button></th>
                         <th>Uplata školarine</th>
                     </tr>
                 </thead>
