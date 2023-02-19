@@ -13,9 +13,18 @@ function Ispiti() {
     }, []);
 
     function prijaviIspit(id) {
+        let postoji = false
         ispiti.forEach(ispit => {
-            if (ispit.id == id)
-                setPrijavljeniIspiti(current => [...current, ispit]);
+            if (ispit.id == id) {
+
+                prijavljeniIspiti.forEach(i => {
+                    if (i.id == id)
+                        postoji = true
+                });
+
+                if (!postoji)
+                    setPrijavljeniIspiti(current => [...current, ispit]);
+            }
         });
     }
 
