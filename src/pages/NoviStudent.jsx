@@ -32,7 +32,7 @@ function NoviStudent() {
             url: 'https://email-validator18.p.rapidapi.com/email/validate',
             params: { email: studentValues.email },
             headers: {
-                'X-RapidAPI-Key': 'b044c03b9amshd0d2c3a3355470cp192338jsn2b5104da4842',
+                'X-RapidAPI-Key': '2b9b5722edmsh7f832ca17afe3b2p14bf60jsn22a7d7953ea3',
                 'X-RapidAPI-Host': 'email-validator18.p.rapidapi.com'
             }
         };

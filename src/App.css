@@ -4,13 +4,23 @@
 }
 
 body {
+  margin: 0;
+  background-image: url(img/students.jpg) ;
+  
+  background-size: cover;
   background-color: #FFF9F7;
 }
 
 .login_page {
-  margin-left: 43%;
+  background-color: rgb(216, 191, 216, .7);
+  border-radius: 2%;
+  margin-left: 33%;
+  margin-right: 23%;
   margin-top: 10%;
   font-size: 25px;
+  display: block;
+  /* text-align: center; */
+  /* align-content: center; */
 }
 
 #korisnicko_ime_input,
