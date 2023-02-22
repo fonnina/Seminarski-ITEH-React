@@ -14,18 +14,21 @@ body {
 .login_page {
   background-color: rgb(216, 191, 216, .7);
   border-radius: 2%;
-  margin-left: 33%;
-  margin-right: 23%;
+  margin-left: 43%;
+  margin-right: 33%;
   margin-top: 10%;
   font-size: 25px;
   display: block;
-  /* text-align: center; */
+  text-align: center;
   /* align-content: center; */
 }
 
 #korisnicko_ime_input,
 #lozinka_input {
-  width: 30%;
+  /* width: 30%; */
+  column-width: 30%;
+  align-items: center;
+  text-align: center;
 }
 
 .admin_nav_menu {

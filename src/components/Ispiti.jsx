@@ -54,10 +54,10 @@ function Ispiti() {
                         ispiti.map((ispit) => {
                             return (
                                 <tr key={ispit.id}>
-                                    <td>{ispit.naziv}</td>
-                                    <td>{ispit.ESPB}</td>
-                                    <td>{ispit.godina}</td>
-                                    <td>{ispit.profesor}</td>
+                                    <td><b>{ispit.naziv}</b></td>
+                                    <td><b>{ispit.ESPB}</b></td>
+                                    <td><b>{ispit.godina}</b></td>
+                                    <td><b>{ispit.profesor}</b></td>
                                     <td><button onClick={() => prijaviIspit(ispit.id)} className='btn btn-success'>Prijavi</button></td>
                                 </tr>
                             )
@@ -93,10 +93,10 @@ function Ispiti() {
                         prijavljeniIspiti.map((ispit) => {
                             return (
                                 <tr key={ispit.id}>
-                                    <td>{ispit.naziv}</td>
-                                    <td>{ispit.ESPB}</td>
-                                    <td>{ispit.godina}</td>
-                                    <td>{ispit.profesor}</td>
+                                    <td><b>{ispit.naziv}</b></td>
+                                    <td><b>{ispit.ESPB}</b></td>
+                                    <td><b>{ispit.godina}</b></td>
+                                    <td><b>{ispit.profesor}</b></td>
                                     <td><button onClick={() => obrisiIspit(ispit.id)} className='btn btn-success'>Obriši</button></td>
                                 </tr>
                             )
